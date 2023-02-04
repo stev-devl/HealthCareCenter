@@ -1,16 +1,20 @@
 package com.stev.modules;
 
+import java.util.Arrays;
+
 public class MedicalCare {
     public enum reason{
 
+        ALTA, ATTEND, HAS_BEEN_ATTENDED,
+
     }
     Patient patient;
-    int dateIn;
+    String dateIn;
     float [] vitalSigns;
     private int dateDischarge;
     private String reasonDischarge;
 
-    public Patient getPatient(int SIP) {
+    public Patient getPatient() {
         return patient;
     }
 
@@ -18,12 +22,13 @@ public class MedicalCare {
         this.patient = patient;
     }
 
-    public int getDateIn() {
-        return dateIn;
-    }
 
-    public void setDateIn(int dateIn) {
-        this.dateIn = dateIn;
+
+    public String setDateIn(String dateIn) {
+
+
+
+        return dateIn;
     }
 
     public float[] getVitalSigns() {
@@ -48,5 +53,16 @@ public class MedicalCare {
 
     public void setReasonDischarge(String reasonDischarge) {
         this.reasonDischarge = reasonDischarge;
+    }
+
+    @Override
+    public String toString() {
+        return "MedicalCare{" +
+                //"patient=" + patient +
+                ", dateIn=" + setDateIn(String.valueOf(Center.currentTime(patient)) )+
+                //", vitalSigns=" + Arrays.toString(vitalSigns) +
+                //", dateDischarge=" + dateDischarge +
+                //", reasonDischarge='" + reasonDischarge + '\'' +
+                '}';
     }
 }
